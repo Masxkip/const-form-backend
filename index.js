@@ -3,10 +3,17 @@ const cors = require('cors');
 require('dotenv').config();
 
 const app = express();
-app.use(cors());
+
+app.use(cors({
+  origin: [
+    "https://www.aaaconstructionequipmentmarket.ca",
+    "https://aaaconstructionequipmentmarket.ca"
+  ]
+}));
+
 app.use(express.json());
 
-// Use the contact form route
+// Use the 
 const contactRoutes = require('./routes/contactRoutes');
 app.use('/api', contactRoutes); // Handles /api/contact
 
