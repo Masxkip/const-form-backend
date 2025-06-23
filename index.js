@@ -8,14 +8,18 @@ app.use(cors({
   origin: [
     "https://www.aaaconstructionequipmentmarket.ca",
     "https://aaaconstructionequipmentmarket.ca"
-  ]
+  ],
+  methods: ["GET", "POST", "OPTIONS"],
+  allowedHeaders: ["Content-Type"]
 }));
+
+app.options('*', cors()); // Handle preflight requests
 
 app.use(express.json());
 
-// Use the 
+// Routes
 const contactRoutes = require('./routes/contactRoutes');
-app.use('/api', contactRoutes); // Handles /api/contact
+app.use('/api', contactRoutes);
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
