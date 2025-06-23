@@ -30,24 +30,23 @@ exports.sendContactForm = async (req, res) => {
     },
     });
 
-
     const mailOptions = {
       from: `"${companyName}" <${email}>`,
       to: process.env.RECEIVER_EMAIL,
       subject: 'New Contact Form Submission',
       text: `
-Company Name: ${companyName}
-Name: ${firstName} ${lastName}
-Phone: ${phone}
-Email: ${email}
+        Company Name: ${companyName}
+        Name: ${firstName} ${lastName}
+        Phone: ${phone}
+        Email: ${email}
 
-Address:
-${street}
-${address2}
-${city}, ${state}, ${zip}
+        Address:
+        ${street}
+        ${address2}
+        ${city}, ${state}, ${zip}
 
-Message:
-${message}
+        Message:
+        ${message}
       `,
     };
 
