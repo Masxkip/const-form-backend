@@ -19,7 +19,7 @@ exports.sendContactForm = async (req, res) => {
     return res.status(400).json({ error: 'Required fields are missing.' });
   }
 
-  try {
+    try {
    const transporter = nodemailer.createTransport({
     host: process.env.EMAIL_HOST,
     port: Number(process.env.EMAIL_PORT),
