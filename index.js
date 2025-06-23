@@ -10,14 +10,12 @@ app.use(cors({
     "https://aaaconstructionequipmentmarket.ca"
   ],
   methods: ["GET", "POST", "OPTIONS"],
-  allowedHeaders: ["Content-Type"]
+  allowedHeaders: ["Content-Type"],
+  optionsSuccessStatus: 200
 }));
-
-app.options('*', cors()); // Handle preflight requests
 
 app.use(express.json());
 
-// Routes
 const contactRoutes = require('./routes/contactRoutes');
 app.use('/api', contactRoutes);
 
